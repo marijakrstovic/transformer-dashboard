@@ -29,6 +29,5 @@ yarn-error.log*
 *.local
 docker-compose.override.yml
 
-# Optional: lock files (if you don’t want to commit them)
-# package-lock.json
-# yarn.lock
+# lock files 
+package-lock.json

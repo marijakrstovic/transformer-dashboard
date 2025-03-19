@@ -16,6 +16,8 @@ import {
   ChartOptions
 } from 'chart.js';
 import 'chartjs-adapter-date-fns';
+import debounce from 'lodash/debounce';
+import isEqual from 'lodash/isEqual';
 
 Chart.register(...registerables);
 
@@ -27,6 +29,14 @@ const props = defineProps<{
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 
 let chart: Chart<'line'> | null = null;
+
+// Debounced function to update the chart
+const updateChart = debounce((newData: ChartData<'line'>) => {
+  if (chart && newData?.datasets) {
+    chart.data = newData;
+    chart.update();
+  }
+}, 400); // debounce delay
 
 onMounted(() => {
   if (canvasRef.value) {
@@ -46,7 +56,10 @@ onMounted(() => {
           }
         },
         plugins: {
-          legend: { display: true }
+          legend: { 
+            display: true,
+            onClick: () => {}
+          }
         }
       }
     });
@@ -58,16 +71,12 @@ onUnmounted(() => {
     chart.destroy();
     chart = null;
   }
+  updateChart.cancel(); // Cancel any pending debounced updates
 });
 
-watch(() => props.chartData, (newData) => {
-  if (chart && newData?.datasets) {
-    chart.data = newData;
-    chart.update();
-  } else if (chart) {
-    console.error('Invalid chart data');
-    chart.data = { datasets: [] }; 
-    chart.update();
+watch(() => props.chartData, (newData, oldData) => {
+  if (!isEqual(newData, oldData)) {
+    updateChart(newData); // Use the debounced function
   }
 });
 </script>

@@ -35,10 +35,14 @@ const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#A133FF'];
 const chartData = computed((): ChartData<'line'> => {
   return {
     datasets: store.transformers
-      .filter((t: Transformer) => store.selectedIds.includes(t.assetId))
-      .map((t: Transformer, index: number) => ({
+    .filter(t =>
+        store.selectedIds.includes(t.assetId) &&
+        (t.name.toLowerCase().includes(store.search.toLowerCase()) ||
+         t.region.toLowerCase().includes(store.search.toLowerCase()))
+      )
+      .map((t, index) => ({
         label: t.name,
-        data: (t.lastTenVoltgageReadings || []).map(r => ({
+        data: t.lastTenVoltgageReadings.map(r => ({
           x: new Date(r.timestamp).getTime(),
           y: Number(r.voltage)
         })),
@@ -46,6 +50,6 @@ const chartData = computed((): ChartData<'line'> => {
         tension: 0.3,
         fill: false
       }))
-  };
+  }
 });
 </script>
