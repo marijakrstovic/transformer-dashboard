@@ -12,8 +12,7 @@ import { ref, onMounted, watch, onUnmounted } from 'vue';
 import {
   Chart,
   registerables,
-  ChartData,
-  ChartOptions
+  ChartData
 } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import debounce from 'lodash/debounce';
@@ -23,7 +22,6 @@ Chart.register(...registerables);
 
 const props = defineProps<{
   chartData: ChartData<'line'>; 
-  options?: ChartOptions<'line'>;
 }>();
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);
@@ -43,7 +41,7 @@ onMounted(() => {
     chart = new Chart<'line'>(canvasRef.value, {
       type: 'line',
       data: props.chartData,
-      options: props.options || {
+      options: {
         responsive: true,
         scales: {
           x: {
