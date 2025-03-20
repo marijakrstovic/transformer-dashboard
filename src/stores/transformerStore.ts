@@ -8,7 +8,12 @@ export const useTransformerStore = defineStore('transformers', () => {
   const search = ref<string>(''); 
   const selectedIds = ref<number[]>(transformers.value.map(t => t.assetId)); 
 
-  return { transformers, search, selectedIds };
+  const resetFilters = () => {
+    search.value = '';
+    selectedIds.value = transformers.value.map(t => t.assetId);
+  }
+
+  return { transformers, search, selectedIds, resetFilters };
 }, {
   persist: true 
 });
