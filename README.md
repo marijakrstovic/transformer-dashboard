@@ -30,5 +30,7 @@ Build and run container:
 
 ```bash
 docker build -t transformer-dashboard .
-docker run -p 4173:4173 transformer-dashboard
+docker run -d -p 8080:80 transformer-dashboard
 ```
+
+## Visit http://localhost:8080
