@@ -1,6 +1,6 @@
 # Transformer Dashboard
 
-A lightweight Vue 3 + TypeScript web app that displays and filters transformer data, using real-time charts and clean UI components.
+A production-ready Vue 3 + TypeScript app that displays and filters transformer data, using real-time charts and clean UI components.
 
 ## 🚀Live demo and deployments
 
@@ -9,7 +9,7 @@ A lightweight Vue 3 + TypeScript web app that displays and filters transformer d
 
 GitHub Actions CI/CD is configured to auto-deploy to GitHub Pages on every push to `main`.
 
-## 📡 Data source
+## 📡 Data ingestion
 
 The app fetches data from a mock API hosted on Mocky.io, simulating a real HTTP backend:  
 🔗 https://run.mocky.io/v3/44b96068-4b26-4713-8687-f5b635043de0
@@ -60,7 +60,7 @@ docker run -d -p 8080:80 transformer-dashboard
 
 Then open: http://localhost:8080
 
-Docker Compose (Alternative Option):
+Docker Compose (Alternative):
 
 ```bash
 docker-compose up --build
