@@ -2,10 +2,13 @@
 
 A lightweight Vue 3 + TypeScript web app that displays and filters transformer data, using real-time charts and clean UI components.
 
-## 🌐 Live demo
+## 🚀Live demo and deployments
 
-Deployed on Vercel:  
-🔗 https://transformer-dashboard.vercel.app
+- 🔗 Vercel: [https://transformer-dashboard.vercel.app](https://transformer-dashboard.vercel.app)
+- 🔗 GitHub Pages: [https://marijakrstovic.github.io/transformer-dashboard/](https://marijakrstovic.github.io/transformer-dashboard/)
+
+GitHub Actions CI/CD is configured to auto-deploy to GitHub Pages on every push to `main`.
+
 
 ## 📡 Data source
 
