@@ -1,6 +1,6 @@
 import type { Transformer } from '../types/types';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = 'https://run.mocky.io/v3/44b96068-4b26-4713-8687-f5b635043de0';
 
 export async function fetchTransformers(): Promise<Transformer[]> {
   const res = await fetch(API_URL);
