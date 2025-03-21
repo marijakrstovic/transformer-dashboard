@@ -1,9 +1,15 @@
 <template>
   <div>
-    <div v-if="!props.chartData || !props.chartData.datasets.length" class="text-center text-gray-500">
+    <div
+      v-if="!props.chartData || !props.chartData.datasets.length"
+      class="text-center text-gray-500"
+    >
       Loading chart data...
     </div>
-    <canvas v-else ref="canvasRef"></canvas>
+    <canvas
+      v-else
+      ref="canvasRef"
+    />
   </div>
 </template>
 

@@ -1,7 +1,17 @@
 <template>
   <div class="mb-6">
-    <div v-if="store.loading" class="text-center text-gray-500">Loading chart data...</div>
-    <div v-else-if="store.error" class="text-red-500 text-center">{{ store.error }}</div>
+    <div
+      v-if="store.loading"
+      class="text-center text-gray-500"
+    >
+      Loading chart data...
+    </div>
+    <div
+      v-else-if="store.error"
+      class="text-red-500 text-center"
+    >
+      {{ store.error }}
+    </div>
     <div v-else>
       <div class="flex flex-wrap gap-4 mb-4">
         <label
@@ -10,19 +20,25 @@
           class="flex items-center gap-2"
         >
           <input
-            type="checkbox"
             v-model="store.selectedIds"
+            type="checkbox"
             :value="transformer.assetId"
             :aria-label="`Select ${transformer.name}`"
-          />
+          >
           {{ transformer.name }}
         </label>
       </div>
 
-      <div v-if="!chartData.datasets.length" class="text-center text-gray-500 pt-6">
+      <div
+        v-if="!chartData.datasets.length"
+        class="text-center text-gray-500 pt-6"
+      >
         No data to display. Please select transformers.
       </div>
-      <LineChart v-else :chart-data="chartData" />
+      <LineChart
+        v-else
+        :chart-data="chartData"
+      />
     </div>
   </div>
 </template>
@@ -32,7 +48,6 @@ import { computed } from 'vue';
 import { useTransformerStore } from '../stores/transformerStore';
 import LineChart from './LineChart.vue';
 import { ChartData } from 'chart.js';
-import { Transformer } from '../types/types';
 
 const store = useTransformerStore();
 const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#A133FF'];
