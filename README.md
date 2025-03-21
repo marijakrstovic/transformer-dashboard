@@ -13,14 +13,14 @@ The app fetches data from a mock API hosted on Mocky.io, simulating a real HTTP 
 🔗 https://run.mocky.io/v3/44b96068-4b26-4713-8687-f5b635043de0
 
 ## 🛠 Tech stack
-Vue 3 + TypeScript
-Pinia (state management with persistence)
-Chart.js (for transformer voltage visualization)
-Tailwind CSS (utility-first styling)
-Lodash (debouncing, deep comparisons, utility helpers)
-Vite (for blazing-fast dev + build)
-Docker + Nginx (for production build and containerization)
-Vercel (for deployment)
+* Vue 3 + TypeScript
+* Pinia (state management with persistence)
+* Chart.js (for transformer voltage visualization)
+* Tailwind CSS (utility-first styling)
+* Lodash (debouncing, deep comparisons, utility helpers)
+* Vite (for blazing-fast dev + build)
+* Docker + Nginx (for production build and containerization)
+* Vercel (for deployment)
 
 ## 🚀 Setup
 
