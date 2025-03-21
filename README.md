@@ -34,3 +34,12 @@ docker run -d -p 8080:80 transformer-dashboard
 ```
 
 Visit http://localhost:8080
+
+Docker Compose (Alternative Option)
+If you prefer using docker-compose:
+
+```bash
+docker-compose up --build
+```
+
+Then open: http://localhost:8080
