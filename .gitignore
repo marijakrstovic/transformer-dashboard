@@ -28,6 +28,3 @@ yarn-error.log*
 # Docker
 *.local
 docker-compose.override.yml
-
-# lock files 
-package-lock.json
