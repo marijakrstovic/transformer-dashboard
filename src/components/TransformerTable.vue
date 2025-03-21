@@ -3,46 +3,25 @@
     <input
       v-model="store.search"
       placeholder="Search by name or region"
-      class="border rounded px-3 py-2 mb-2 w-full"
+      class="mb-2 w-full rounded border px-3 py-2"
       aria-label="Search transformers"
-    >
+    />
 
-    <div
-      v-if="store.loading"
-      class="text-gray-500 text-center py-4"
-    >
-      Loading transformers...
-    </div>
-    <div
-      v-else-if="store.error"
-      class="text-red-500 text-center py-4"
-    >
+    <div v-if="store.loading" class="py-4 text-center text-gray-500">Loading transformers...</div>
+    <div v-else-if="store.error" class="py-4 text-center text-red-500">
       {{ store.error }}
     </div>
 
-    <table
-      v-else
-      class="w-full bg-white border rounded shadow"
-    >
+    <table v-else class="w-full rounded border bg-white shadow">
       <thead>
         <tr class="bg-gray-100 text-left">
-          <th class="p-2">
-            Name
-          </th>
-          <th class="p-2">
-            Region
-          </th>
-          <th class="p-2">
-            Health
-          </th>
+          <th class="p-2">Name</th>
+          <th class="p-2">Region</th>
+          <th class="p-2">Health</th>
         </tr>
       </thead>
       <tbody v-if="filteredTransformers.length">
-        <tr
-          v-for="transformer in filteredTransformers"
-          :key="transformer.assetId"
-          class="border-t"
-        >
+        <tr v-for="transformer in filteredTransformers" :key="transformer.assetId" class="border-t">
           <td class="p-2">
             {{ transformer.name }}
           </td>
@@ -56,12 +35,7 @@
       </tbody>
       <tbody v-else>
         <tr>
-          <td
-            colspan="3"
-            class="p-2 text-center text-gray-500"
-          >
-            No transformers found.
-          </td>
+          <td colspan="3" class="p-2 text-center text-gray-500">No transformers found.</td>
         </tr>
       </tbody>
     </table>
@@ -77,9 +51,9 @@ const store = useTransformerStore();
 const filteredTransformers = computed((): Transformer[] => {
   if (!store.transformers) return [];
   const search = store.search?.toLowerCase() || '';
-  return store.transformers.filter((t: Transformer) =>
-    t.name.toLowerCase().includes(search) ||
-    t.region.toLowerCase().includes(search)
+  return store.transformers.filter(
+    (t: Transformer) =>
+      t.name.toLowerCase().includes(search) || t.region.toLowerCase().includes(search)
   );
 });
 </script>
