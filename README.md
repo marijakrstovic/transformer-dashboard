@@ -43,3 +43,8 @@ docker-compose up --build
 ```
 
 Then open: http://localhost:8080
+
+
+
+The app is deployed to Vercel using its optimized static frontend pipeline. https://transformer-dashboard.vercel.app
+A Docker setup is also provided in the repo to demonstrate containerization and to enable portable deployment to any Docker-supported platform.
