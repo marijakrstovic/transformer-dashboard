@@ -10,13 +10,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useTransformerStore } from './stores/transformerStore';
 import TransformerTable from './components/TransformerTable.vue';
 import VoltageChart from './components/VoltageChart.vue';
 import ResetButton from './components/ResetButton.vue';
 
 const store = useTransformerStore();
+
+onMounted(() => {
+  store.loadTransformers();
+});
 
 const hasChanges = computed(() => {
   const isSearchChanged = store.search !== '';

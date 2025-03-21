@@ -1,24 +1,29 @@
 <template>
   <div class="mb-6">
-    <div class="flex flex-wrap gap-4 mb-4">
-      <label
-        v-for="transformer in store.transformers"
-        :key="transformer.assetId"
-        class="flex items-center gap-2"
-      >
-        <input
-          type="checkbox"
-          v-model="store.selectedIds"
-          :value="transformer.assetId"
-          :aria-label="`Select ${transformer.name}`"
-        />
-        {{ transformer.name }}
-      </label>
+    <div v-if="store.loading" class="text-center text-gray-500">Loading chart data...</div>
+    <div v-else-if="store.error" class="text-red-500 text-center">{{ store.error }}</div>
+    <div v-else>
+      <div class="flex flex-wrap gap-4 mb-4">
+        <label
+          v-for="transformer in store.transformers"
+          :key="transformer.assetId"
+          class="flex items-center gap-2"
+        >
+          <input
+            type="checkbox"
+            v-model="store.selectedIds"
+            :value="transformer.assetId"
+            :aria-label="`Select ${transformer.name}`"
+          />
+          {{ transformer.name }}
+        </label>
+      </div>
+
+      <div v-if="!chartData.datasets.length" class="text-center text-gray-500 pt-6">
+        No data to display. Please select transformers.
+      </div>
+      <LineChart v-else :chart-data="chartData" />
     </div>
-    <div v-if="!chartData.datasets.length" class="text-center text-gray-500 pt-6">
-      No data to display. Please select transformers.
-    </div>
-    <LineChart v-else :chart-data="chartData" />
   </div>
 </template>
 

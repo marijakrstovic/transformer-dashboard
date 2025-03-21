@@ -6,7 +6,11 @@
       class="border rounded px-3 py-2 mb-2 w-full"
       aria-label="Search transformers"
     />
-    <table class="w-full bg-white border rounded shadow">
+
+    <div v-if="store.loading" class="text-gray-500 text-center py-4">Loading transformers...</div>
+    <div v-else-if="store.error" class="text-red-500 text-center py-4">{{ store.error }}</div>
+
+    <table v-else class="w-full bg-white border rounded shadow">
       <thead>
         <tr class="bg-gray-100 text-left">
           <th class="p-2">Name</th>
