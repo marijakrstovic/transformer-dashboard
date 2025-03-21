@@ -4,7 +4,6 @@ A production-ready Vue 3 + TypeScript app that displays and filters transformer 
 
 ## 🚀Live demo and deployments
 
-- 🔗 Vercel: [https://transformer-dashboard.vercel.app](https://transformer-dashboard.vercel.app)
 - 🔗 GitHub Pages: [https://marijakrstovic.github.io/transformer-dashboard/](https://marijakrstovic.github.io/transformer-dashboard/)
 
 GitHub Actions CI/CD is configured to auto-deploy to GitHub Pages on every push to `main`.
@@ -16,14 +15,14 @@ The app fetches data from a mock API hosted on Mocky.io, simulating a real HTTP 
 
 ## 🛠 Tech stack
 
-- Vue 3 + TypeScript
-- Pinia (state management with persistence)
-- Chart.js (for transformer voltage visualization)
-- Tailwind CSS (utility-first styling)
-- Lodash (debouncing, deep comparisons, utility helpers)
-- Vite (for blazing-fast dev + build)
-- Docker + Nginx (for production build and containerization)
-- Vercel (for deployment)
+- ⚙️ Vue 3 + TypeScript
+- 📦 Pinia (state management with persistence)
+- 📊 Chart.js (real-time voltage line chart)
+- 🎨 Tailwind CSS (utility-first styling)
+- 🛠 Lodash (debouncing, deep comparisons)
+- ⚡ Vite (build & dev tooling)
+- 🐳 Docker + Nginx (containerized production build)
+- 🤖 GitHub Actions (CI/CD pipeline with auto-deploy)
 
 ## 🚀 Setup
 
