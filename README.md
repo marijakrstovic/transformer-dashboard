@@ -2,17 +2,17 @@
 
 A lightweight Vue 3 + TypeScript web app that displays and filters transformer data, using real-time charts and clean UI components.
 
-## 🌐 Live Demo
+## 🌐 Live demo
 
 Deployed on Vercel:
 🔗 https://transformer-dashboard.vercel.app
 
-## 📡 Data Source
+## 📡 Data source
 
 The app fetches data from a mock API hosted on Mocky.io, simulating a real HTTP backend:
 🔗 https://run.mocky.io/v3/44b96068-4b26-4713-8687-f5b635043de0
 
-## 🛠 Tech Stack
+## 🛠 Tech stack
 Vue 3 + TypeScript
 Pinia (state management with persistence)
 Chart.js (for transformer voltage visualization)
