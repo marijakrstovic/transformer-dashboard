@@ -6,7 +6,10 @@
     >
       Loading chart data...
     </div>
-    <canvas v-else ref="canvasRef" />
+    <canvas
+      v-else
+      ref="canvasRef"
+    />
   </div>
 </template>
 

@@ -1,7 +1,15 @@
 <template>
   <div class="mb-6">
-    <div v-if="store.loading" class="text-center text-gray-500">Loading chart data...</div>
-    <div v-else-if="store.error" class="text-center text-red-500">
+    <div
+      v-if="store.loading"
+      class="text-center text-gray-500"
+    >
+      Loading chart data...
+    </div>
+    <div
+      v-else-if="store.error"
+      class="text-center text-red-500"
+    >
       {{ store.error }}
     </div>
     <div v-else>
@@ -16,15 +24,21 @@
             type="checkbox"
             :value="transformer.assetId"
             :aria-label="`Select ${transformer.name}`"
-          />
+          >
           {{ transformer.name }}
         </label>
       </div>
 
-      <div v-if="!chartData.datasets.length" class="pt-6 text-center text-gray-500">
+      <div
+        v-if="!chartData.datasets.length"
+        class="pt-6 text-center text-gray-500"
+      >
         No data to display. Please select transformers.
       </div>
-      <LineChart v-else :chart-data="chartData" />
+      <LineChart
+        v-else
+        :chart-data="chartData"
+      />
     </div>
   </div>
 </template>
