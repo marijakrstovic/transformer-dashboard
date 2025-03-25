@@ -19,7 +19,10 @@ export const useTransformerStore = defineStore(
       try {
         const data = await fetchTransformers();
         transformers.value = data;
-        selectedIds.value = data.map((t) => t.assetId);
+         // Ids preselected by default if none are selected
+        if (selectedIds.value.length === 0) {
+          selectedIds.value = data.map((t) => t.assetId);
+        }
       } catch (err) {
         error.value = (err as Error).message;
       } finally {
