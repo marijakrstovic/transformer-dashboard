@@ -11,7 +11,7 @@ GitHub Actions CI/CD is configured to auto-deploy to GitHub Pages on every push 
 ## 📡 Data ingestion
 
 The app fetches data from a mock API hosted on Mocky.io, simulating a real HTTP backend:  
-🔗 https://run.mocky.io/v3/44b96068-4b26-4713-8687-f5b635043de0
+🔗 https://run.mocky.io/v3/a7296587-891f-4657-b634-aa0fa5581a51
 
 ## 🛠 Tech stack
 
